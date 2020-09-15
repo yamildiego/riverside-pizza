@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, NavDropdown } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 class Menu extends Component {
     state = {}
@@ -17,7 +18,7 @@ class Menu extends Component {
                         {/* <Nav className="mr-auto"> */}
                         {/* <Nav.Link href="#home">Home</Nav.Link> */}
                         {/* </Nav> */}
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown" className="mr-sm-2">
+                        <NavDropdown title={this.props.user.name} id="basic-nav-dropdown" className="mr-sm-2">
                             <NavDropdown.Item href="#action/3.1">My orders</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.4">Sing out</NavDropdown.Item>
@@ -29,4 +30,10 @@ class Menu extends Component {
     }
 }
 
-export default Menu;
+function mapStateToProps(state, props) {
+    return {
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps)(Menu);
