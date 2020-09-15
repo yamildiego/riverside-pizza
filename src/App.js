@@ -1,13 +1,32 @@
 import React from 'react';
-import Menu from './components/Menu/Menu';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import HandleError from './components/HandleError';
+import Login from './components/pages/Login';
+import Home from './components/pages/Home';
+import MyOrders from './components/pages/MyOrders';
+import Checkout from './components/pages/Checkout';
 import './App.css';
 
 const App = () => {
   return (
-    <div className="App">
-      <Menu />
-    </div>
+    <HandleError>
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route path="/home" component={Home} />
+        <Route path="/my-orders" component={MyOrders} />
+        <Route path="/checkout" component={Checkout} />
+      </Switch>
+    </HandleError>
+
   );
 }
 
-export default App;
+function mapStateToProps(state, props) {
+  // let elements = props.history.location.pathname.split("/");
+  return {
+    // location: props.location.pathname
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(App));

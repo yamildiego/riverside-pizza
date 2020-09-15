@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import { Navbar, NavDropdown } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
@@ -8,7 +9,9 @@ class Menu extends Component {
         return (
             <Navbar bg="light" expand="lg" className="d-flex justify-content-between">
                 <div>
-                    <Navbar.Brand href="#home">Riverside Pizza</Navbar.Brand>
+                    <Link to="/home">
+                        <Navbar.Brand href="#home">Riverside Pizza</Navbar.Brand>
+                    </Link>
                 </div>
                 <div>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -19,9 +22,17 @@ class Menu extends Component {
                         {/* <Nav.Link href="#home">Home</Nav.Link> */}
                         {/* </Nav> */}
                         <NavDropdown title={this.props.user.name} id="basic-nav-dropdown" className="mr-sm-2">
-                            <NavDropdown.Item href="#action/3.1">My orders</NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <Link to="/my-orders">
+                                    My orders
+                                </Link>
+                            </NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Sing out</NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <Link to="/">
+                                    Sing out
+                                </Link>
+                            </NavDropdown.Item>
                         </NavDropdown>
                     </Navbar.Collapse>
                 </div>
