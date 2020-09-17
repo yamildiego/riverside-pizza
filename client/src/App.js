@@ -6,6 +6,7 @@ import Login from './components/pages/Login';
 import Home from './components/pages/Home';
 import MyOrders from './components/pages/MyOrders';
 import Checkout from './components/pages/Checkout';
+import AddPizza from './components/pages/AddPizza';
 import Notfound from './components/pages/Notfound';
 import './App.css';
 
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/home" component={Home} />
         <Route path="/my-orders" component={MyOrders} />
         <Route path="/checkout" component={Checkout} />
+        <Route path="/addPizza/:pizza_id/:quantity?" component={AddPizza} />
         <Route component={Notfound} />
       </Switch>
     </HandleError>

@@ -1,0 +1,22 @@
+.my-menu {
+    background: #EA8543;
+}
+
+.navbar-light .navbar-brand {
+    font-family: 'Ranchers', cursive;
+    color: white!important;
+    letter-spacing: 1px;
+}
+
+.cart {
+    padding: 8px;
+    height: 38px;
+    border-radius: 20px;
+    background: #F4B11B;
+    color: white;
+    font-size: 34px;
+}
+
+.my-options>a {
+    color: #fff!important;
+}

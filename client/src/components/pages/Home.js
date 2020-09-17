@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Menu from './../Menu/Menu';
-import Menu from './../ListPizzas/ListPizzas';
+import PizzaList from '../PizzaList/PizzaList';
 import pizzas from './../../data';
 
 class Home extends Component {
@@ -9,7 +9,7 @@ class Home extends Component {
         return (
             <div className="App">
                 <Menu />
-                <ListPizzas pizzas={pizzas} />
+                <PizzaList pizzas={pizzas} />
             </div>
         );
     }

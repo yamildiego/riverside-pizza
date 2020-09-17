@@ -1,0 +1,36 @@
+ .PizzaCard {
+     box-shadow: #b1b1b18a 2px 3px 6px;
+     border: 0 !important;
+     margin-bottom: 20px!important;
+ }
+
+ .PizzaCard .card-body {
+     padding: 0.25rem;
+ }
+
+ .PizzaCard .card-text {
+     font-size: 11px;
+ }
+
+ .PizzaCard .card-footer {
+     padding: 5px;
+     background-color: #f5f5f5;
+ }
+
+ .PizzaCard .card-footer .btn-warning {
+     background: #F4B11B!important;
+     color: white!important;
+     border-bottom-left-radius: 0;
+     border-top-left-radius: 0;
+ }
+
+ .PizzaCard .my-select select {
+     border-bottom-right-radius: 0;
+     border-top-right-radius: 0;
+     border-right: 0;
+ }
+
+ .PizzaCard .my-select {
+     float: right;
+     width: 55px;
+ }
