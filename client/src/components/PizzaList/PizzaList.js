@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PizzaCard from './PizzaCard';
+import Modal from './../Modal';
+import ModalContainer from './../ModalContainer';
 
 class PizzaList extends Component {
+    state = {
+        modalVisible: false,
+        pizzaModal: null
+    }
+
+    handleClickSeeMore = (pizzaModal) => {
+        this.setState({ modalVisible: true, pizzaModal });
+
+    }
+
+    handleClickSeeMoreClose = () => {
+        this.setState({ modalVisible: false, pizzaModal: null });
+    }
+
     render() {
         return (
             <div className="pt-1">
-                <h2 className="text-center mb-3">
+                <h2 className="text-center mb-1">
                     Our Pizzas
                 </h2>
                 <div>
@@ -19,6 +35,15 @@ class PizzaList extends Component {
                             />
                         })
                     }
+
+                    {
+                        this.state.modalVisible &&
+                        <ModalContainer>
+                            <Modal closeModal={this.closeModal}>
+                                {this.state.pizzaModal.name}
+                            </Modal>
+                        </ModalContainer>
+                    }
                 </div>
             </div>
         );
@@ -27,7 +52,7 @@ class PizzaList extends Component {
 
 function mapStateToProps(state, props) {
     return {
-        pizzas: props.pizzas
+        pizzas: state.info.pizzas
     }
 }
 

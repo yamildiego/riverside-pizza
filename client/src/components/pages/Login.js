@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
-// import  { Redirect } from 'react-router-dom'
+import './Login.css';
 
 class Login extends Component {
     state = {}
@@ -18,8 +18,8 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                Login
+            <div className="App text-center">
+                <h1 className="title mt-4 mb-5">Riverside Pizza</h1>
                 <FacebookLogin
                     appId="246687073323149"
                     autoLoad={true}

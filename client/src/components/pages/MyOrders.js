@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import Menu from './../Menu/Menu';
+import AppLayout from './../AppLayout';
 
 class MyOrders extends Component {
     state = {}
     render() {
         return (
-            <div className="App">
-                <Menu />
+            <AppLayout>
                 my orders
-            </div>
+            </AppLayout>
         );
     }
 }

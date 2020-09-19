@@ -11,7 +11,7 @@ class FormatterWithSign extends Intl.NumberFormat {
 const formatNumber = number => {
     var formatter = new FormatterWithSign('en-US', {
         style: 'currency',
-        currency: 'USD',
+        currency: 'AUD',
         minimumFractionDigits: 2
     });
 

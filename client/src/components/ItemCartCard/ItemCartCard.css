@@ -1,0 +1,22 @@
+.ItemCartCard .card-body {
+    padding: 2px;
+}
+
+.subtotal {
+    text-align: center;
+    font-size: 18px;
+}
+
+.close {
+    border: 1px solid #d4d4d4;
+    background: white;
+    padding: 6px;
+    width: 36px;
+    text-align: center;
+    position: absolute;
+    top: -18px;
+    right: -2px;
+    color: #ff8686!important;
+    border-radius: 20px;
+    opacity: 1!important;
+}

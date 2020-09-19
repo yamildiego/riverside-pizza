@@ -4,16 +4,22 @@ import { withRouter } from 'react-router-dom';
 import './PizzaCard.css';
 
 class PizzaCard extends Component {
-    state = {}
+    state = {
+        qt: 1
+    }
 
     handleAddPizza = () => {
-        this.props.history.push('/addPizza/3/5');
+        this.props.history.push('/addPizza/' + this.props.id + '/' + this.state.qt);
+    }
+
+    onChangeSelect = (e) => {
+        this.setState({ qt: e.target.value })
     }
 
     render() {
         return (
             <div className="pb-2">
-                <Card className="PizzaCard" style={{ width: "99%", margin: "auto" }}>
+                <Card className="PizzaCard" style={{ width: "90%", margin: "auto" }}>
                     {/* <Card.Img variant="top" src={this.props.picture} /> */}
                     <Card.Body>
                         <div className="row">
@@ -33,7 +39,7 @@ class PizzaCard extends Component {
                         <div className="d-flex justify-content-around">
                             <div className="w-100">
                                 <Form className="my-select">
-                                    <Form.Control as="select" custom>
+                                    <Form.Control as="select" value={this.state.qt} custom onChange={this.onChangeSelect}>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>

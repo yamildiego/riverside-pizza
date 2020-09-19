@@ -4,10 +4,20 @@ import { Navbar, NavDropdown } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import * as actions from './../../actions/cartActions';
 import './Menu.css';
 
 class Menu extends Component {
     state = {}
+    componentDidMount() {
+        this.props.dispatch(actions.setNewItemBeforeAdd(
+            {
+                pizza_id: null,
+                qt: 1
+            }
+        ));
+    }
+
     render() {
         return (
             <Navbar expand="lg" className="d-flex justify-content-between my-menu">
@@ -21,23 +31,22 @@ class Menu extends Component {
                     {/* <Nav.Link href="#home">Home</Nav.Link> */}
                     {/* </Nav> */}
                     <NavDropdown title={this.props.user.name} id="basic-nav-dropdown" className="my-options mr-sm-2">
-                        <NavDropdown.Item>
-                            <Link to="/my-orders">
-                                My orders
-                                </Link>
+                        <NavDropdown.Item href="/my-orders">
+                            My orders
                         </NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item>
-                            <Link to="/">
-                                Sing out
-                                </Link>
+                        <NavDropdown.Item href="/">
+                            Sing out
                         </NavDropdown.Item>
                     </NavDropdown>
                 </div>
-                <div>
-                    <FontAwesomeIcon icon={faShoppingCart} className="cart" />
-
-                    {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
+                <div style={{ width: "40px" }}>
+                    {
+                        this.props.optionCheckout &&
+                        <Link to="/cart">
+                            <FontAwesomeIcon icon={faShoppingCart} className="cart" />
+                        </Link>
+                    }
                 </div>
             </Navbar>
         );
@@ -45,7 +54,9 @@ class Menu extends Component {
 }
 
 function mapStateToProps(state, props) {
+    let optionCheckout = (state.info.cart.length !== 0);
     return {
+        optionCheckout,
         user: state.user
     }
 }

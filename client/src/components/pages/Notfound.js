@@ -1,10 +1,11 @@
 import React from 'react';
+import AppLayout from './../AppLayout';
 
 const Notfound = () => {
     return (
-        <div>
-            ups no deberias estar aca.
-        </div>
+        <AppLayout>
+            <div className="text-center mt-5">404 Not Found</div>
+        </AppLayout>
     );
 }
 
